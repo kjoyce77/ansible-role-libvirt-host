@@ -5,6 +5,7 @@
     command: get_xml
   register: _xml
   loop: "{{ libvirt_host_networks }}"
+  become: True
 
 - name: DEBUG
   debug:
