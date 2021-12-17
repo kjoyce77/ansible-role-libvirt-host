@@ -1,7 +1,6 @@
 ---
-- name: "GET XML FOR {{ item.name }}"
+- name: "GET XML"
   virt_net:
-    name: "{{ item.name }}"
     command: get_xml
   register: _xml
 
