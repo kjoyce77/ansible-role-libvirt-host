@@ -1,8 +1,10 @@
 ---
 - name: "GET XML"
   virt_net:
+    name: "{{ item.name }}"
     command: get_xml
   register: _xml
+  loop: "{{ libvirt_host_networks }}"
 
 - name: DEBUG
   debug:
