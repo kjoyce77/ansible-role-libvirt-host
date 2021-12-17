@@ -1,5 +1,15 @@
 ---
-- name: Ensure libvirt networks are defined
+- name: "GET XML FOR {{ item.name }}"
+  virt_net:
+    name: "{{ item.name }}"
+    command: get_xml
+  register: _xml
+
+- name: DEBUG
+  debug:
+    msg: "{{ _xml }}"
+
+- name: "ENSURE NETWORK {{ item.name }} IS ACTIVE AND AUTOSTARTED"
   virt_net:
     name: "{{ item.name }}"
     state: active
